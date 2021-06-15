@@ -1,0 +1,15 @@
+version: "2.3"
+services:
+  emby:
+    image: emby/embyserver
+    environment:
+        - VIRTUAL_HOST=video.fenrir.ovh
+        - VIRTUAL_PORT=8096
+        - LETSENCRYPT_HOST=torrent.fenrir.ovh
+        - LETSENCRYPT_EMAIL=contact@alexismartial.fr
+    volumes:
+      - ./config:/config # Configuration directory
+      #- /data/video-streaming:/mnt/video-streaming # Media directory
+    ports:
+      - 8096:8096 # HTTP port
+    restart: unless-stopped
