@@ -5,11 +5,11 @@ services:
     environment:
         - VIRTUAL_HOST=video.fenrir.ovh
         - VIRTUAL_PORT=8096
-        - LETSENCRYPT_HOST=torrent.fenrir.ovh
+        - LETSENCRYPT_HOST=video.fenrir.ovh
         - LETSENCRYPT_EMAIL=contact@alexismartial.fr
     volumes:
-      - ./config:/config # Configuration directory
-      #- /data/video-streaming:/mnt/video-streaming # Media directory
+      - /data/video-streaming/config:/config # Configuration directory
+      - /data/video-streaming/video:/mnt/video # Media directory
     ports:
       - 8096:8096 # HTTP port
     restart: unless-stopped
