@@ -1,4 +1,4 @@
-version: "3"
+version: "3.7"
 
 services:
   emby:
@@ -11,8 +11,6 @@ services:
     volumes:
       - /data/video-streaming/config:/config # Configuration directory
       - /data/video-streaming/video:/mnt/video # Media directory
-    ports:
-      - 8096:8096 # HTTP port
     restart: unless-stopped
     networks:
         - nginxproxygitdeploy_net-proxy
